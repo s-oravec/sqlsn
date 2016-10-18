@@ -1,19 +1,19 @@
 define l_path_change = "&1"
 
---pause logging
+rem pause logging
 @&&log_pause
 
---define new path
+rem define new path
 define g_run_path = "&&g_run_path./&&l_path_change"
 
---push         on stack new path
+rem push         on stack new path
 @&&stack_push  path     "&&g_run_path"
 
---continue logging
+rem continue logging
 @&&log_continue
 
---prompt begin of dir
+rem prompt begin of dir
 prompt [&&_DATE] path [&&g_run_path]:BEGIN
 
---undefine locals
+rem undefine locals
 undefine l_path_change
