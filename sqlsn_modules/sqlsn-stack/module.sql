@@ -1,16 +1,14 @@
 --module name and path
-define l_path = "&1"
+define stack_module_path = "&1"
 
 --save stack module path to module_config
-spool "&&l_path./lib/command/module_config.sql"
 set termout off
-prompt define stack_module_path = "&&l_path"
-set termout on
+spool "&&stack_module_path./lib/command/module_config.sql"
+prompt define stack_module_path = "&&stack_module_path"
 spool off
+set termout on
 
 --module commands
-define stack_create = "&&l_path./lib/command/create.sql"
-define stack_push   = "&&l_path./lib/command/push.sql"
-define stack_pop    = "&&l_path./lib/command/pop.sql"
-
-undef l_path
+define stack_create = "&&stack_module_path./lib/command/create.sql"
+define stack_push   = "&&stack_module_path./lib/command/push.sql"
+define stack_pop    = "&&stack_module_path./lib/command/pop.sql"
